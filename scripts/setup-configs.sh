@@ -1,0 +1,2 @@
+ln -s configs/.vimrc ~
+
