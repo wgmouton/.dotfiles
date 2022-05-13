@@ -9,6 +9,7 @@ execute_platform_installer() {
     ## MacOS
     'darwin_amd64')
       install_macos_amd64
+      configure $(pwd)
     ;;
     'darwin_arm')
       install_macos_arm 
