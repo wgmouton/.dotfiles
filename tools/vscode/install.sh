@@ -17,8 +17,4 @@ install_docker_arch() {
   skip
 }
 
-configure() {
-  
-}
-
 execute_platform
