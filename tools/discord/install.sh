@@ -5,13 +5,11 @@ source ./scripts/util.sh
 
 ## Install Macos AMD64
 install_macos_amd64() {
-  ln -s ~/.dotfiles/tools/iterm2/.iterm2 ~/
-  brew install iterm2 --cask
+  brew install discord --cask
 }
 
 install_macos_arm() {
-  ln -s ~/.dotfiles/tools/iterm2/.iterm2 ~/
-  # brew install iterm2 --cask
+  brew install discord --cask
 }
 
 ## Install Docker Ubuntu
