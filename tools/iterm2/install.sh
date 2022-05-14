@@ -8,6 +8,10 @@ install_macos_amd64() {
   brew install iterm2 --cask
 }
 
+install_macos_arm() {
+  brew install iterm2 --cask
+}
+
 ## Install Docker Ubuntu
 install_docker_arch() {
   skip

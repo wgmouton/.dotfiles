@@ -5,11 +5,11 @@ source ./scripts/util.sh
 
 ## Install Macos AMD64
 install_macos_amd64() {
-  brew install visual-studio-code --cask
+  brew install docker-desktop --cask
 }
 
 install_macos_arm() {
-  brew install visual-studio-code --cask
+  brew install docker-desktop --cask
 }
 
 ## Install Docker Ubuntu
