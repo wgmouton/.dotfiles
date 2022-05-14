@@ -5,11 +5,11 @@ source ./scripts/util.sh
 
 ## Install Macos AMD64
 install_macos_amd64() {
-  brew install docker-desktop --cask
+  brew install docker --cask
 }
 
 install_macos_arm() {
-  brew install docker-desktop --cask
+  brew install docker --cask
 }
 
 ## Install Docker Ubuntu
