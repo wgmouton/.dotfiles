@@ -11,7 +11,7 @@ install_macos_amd64() {
 
 install_macos_arm() {
   ln -s ~/.dotfiles/tools/iterm2/.iterm2 ~/
-  # brew install iterm2 --cask
+  brew install iterm2 --cask
 }
 
 ## Install Docker Ubuntu
