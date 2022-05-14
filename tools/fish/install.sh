@@ -10,6 +10,17 @@ install_macos_amd64() {
   brew install fish fisher
 }
 
+install_macos_arm() {
+  mkdir -p ~/.config
+  ln -s ~/.dotfiles/tools/fish/fish ~/.config
+  brew install fish fisher
+
+  fisher install ilancosman/tide
+  fisher install franciscolourenco/done
+  fisher install acomagu/fish-async-prompt
+  fisher install jethrokuan/z
+}
+
 ## Install Docker Ubuntu
 install_docker_arch() {
   skip
