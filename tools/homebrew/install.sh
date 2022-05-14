@@ -21,4 +21,4 @@ configure() {
   
 }
 
-execute_platform3
+execute_platform
