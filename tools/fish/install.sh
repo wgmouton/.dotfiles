@@ -15,10 +15,10 @@ install_macos_arm() {
   ln -s ~/.dotfiles/tools/fish/fish ~/.config
   brew install fish fisher
 
-  fish -c fisher install ilancosman/tide
-  fish -c fisher install franciscolourenco/done
-  fish -c fisher install acomagu/fish-async-prompt
-  fish -c fisher install jethrokuan/z
+  fish -c "fisher install ilancosman/tide"
+  fish -c "fisher install franciscolourenco/done"
+  fish -c "fisher install acomagu/fish-async-prompt"
+  fish -c "fisher install jethrokuan/z"
 }
 
 ## Install Docker Ubuntu
