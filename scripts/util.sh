@@ -5,6 +5,7 @@ skip() {
 }
 
 execute_platform_installer() {
+  echo ${OSTYPE}
   case ${OSTYPE} in
     ## MacOS
     'darwin_amd64')
