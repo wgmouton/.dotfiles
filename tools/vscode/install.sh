@@ -17,4 +17,4 @@ install_docker_arch() {
   skip
 }
 
-execute_platform
+execute_platform_installer
