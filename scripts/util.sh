@@ -12,6 +12,10 @@ execute_platform_installer() {
       install_macos_amd64
       configure $(pwd)
     ;;
+    'darwin21.1.0')
+      install_macos_arm 
+    ;;
+
     'darwin21')
       install_macos_arm 
     ;;

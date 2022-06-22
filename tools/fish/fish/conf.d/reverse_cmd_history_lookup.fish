@@ -23,10 +23,10 @@ function inject_previous_command
   commandline -i (string escape $previous_command)
 end
 
-bind \cR reverse_cmd_history_loopup
-bind \cS search_current_dir
-bind \cF search_current_dir
-bind \cW login
+# bind \cR reverse_cmd_history_loopup
+# bind \cS search_current_dir
+# bind \cF search_current_dir
+# bind \cW login
 
 
 # bind \e\[1\;9A inject_previous_command

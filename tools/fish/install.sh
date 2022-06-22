@@ -13,12 +13,17 @@ install_macos_amd64() {
 install_macos_arm() {
   mkdir -p ~/.config
   ln -s ~/.dotfiles/tools/fish/fish ~/.config
+  
+  brew tap homebrew/cask-fonts
+  brew install --cask font-hack-nerd-font
+
   brew install fish fisher
 
-  fish -c "fisher install ilancosman/tide"
-  fish -c "fisher install franciscolourenco/done"
-  fish -c "fisher install acomagu/fish-async-prompt"
-  fish -c "fisher install jethrokuan/z"
+  fish -c "fisher update ilancosman/tide"
+  fish -c "fisher update franciscolourenco/done"
+  # fish -c "fisher intall acomagu/fish-async-prompt" ##NOTE: Breaks on m1 mac
+  fish -c "fisher update jethrokuan/z"
+  fish -c "fisher update PatrickF1/fzf.fish"
 }
 
 ## Install Docker Ubuntu

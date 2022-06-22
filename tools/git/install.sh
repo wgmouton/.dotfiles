@@ -5,7 +5,12 @@ source ./scripts/util.sh
 
 ## Install Macos AMD64
 install_macos_amd64() {
-  brew install karabiner-elements --cask
+  ln -s ~/.dotfiles/tools/git/git ~/.config
+}
+
+install_macos_arm() {
+  ln -s ~/.dotfiles/tools/git/git ~/.config
+  git config --global core.excludesFile '~/.config/git/.gitignore'
 }
 
 ## Install Docker Ubuntu

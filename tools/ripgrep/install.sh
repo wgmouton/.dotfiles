@@ -8,6 +8,10 @@ install_macos_amd64() {
   brew install ripgrep
 }
 
+install_macos_arm() {
+  brew install ripgrep
+}
+
 ## Install Docker Ubuntu
 install_docker_arch() {
   skip

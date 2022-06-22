@@ -8,6 +8,10 @@ install_macos_amd64() {
   brew install notion --cask
 }
 
+install_macos_arm() {
+  brew install notion --cask
+}
+
 ## Install Docker Ubuntu
 install_docker_arch() {
   skip
