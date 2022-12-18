@@ -13,7 +13,7 @@ import (
 
 func init() {
 
-	files, _ := filepath.Glob("../tools/*/install.yaml")
+	files, _ := filepath.Glob("./tools/*/install.yaml")
 
 	var scripts []types.InstallScriptDefinition
 

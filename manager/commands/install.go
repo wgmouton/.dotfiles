@@ -147,7 +147,7 @@ var installCmd = &cobra.Command{
 		defer func() {
 			report := <-finalReportChan
 			yamlReport, _ := yaml.Marshal(&report)
-			os.WriteFile("../report.yaml", yamlReport, 0644)
+			os.WriteFile("./report.yaml", yamlReport, 0644)
 		}()
 
 		go func() {
