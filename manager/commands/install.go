@@ -139,7 +139,7 @@ var installCmd = &cobra.Command{
 		progressChan := make(chan int)
 		defer close(progressChan)
 
-		reportChan := make(chan types.ExecutionReport)
+		reportChan := make(chan types.ExecutionReport, 10000)
 		defer close(reportChan)
 
 		finalReportChan := make(chan []types.ExecutionReport)
