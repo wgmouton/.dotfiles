@@ -1,0 +1,7 @@
+name: Microsoft Edge
+description: Microsoft's Web browser
+stage: 1
+config: []
+scripts:
+  macos_arm: |
+    echo Installing Docker

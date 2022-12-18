@@ -1,0 +1,7 @@
+name: Discord
+description: A chat application
+stage: 3
+config: []
+scripts:
+  macos_arm: |
+    echo Installing Discord

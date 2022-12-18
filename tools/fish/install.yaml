@@ -1,0 +1,8 @@
+name: Fish
+stage: 1
+config: []
+scripts:
+  macos_arm: |
+    echo hallo
+    echo world
+    echo yes hi

@@ -1,0 +1,7 @@
+name: Rosetta2
+description: Macos x86 to arm translation layer
+stage: 0
+config: []
+scripts:
+  macos_arm: |
+    # /usr/sbin/softwareupdate --install-rosetta --agree-to-license

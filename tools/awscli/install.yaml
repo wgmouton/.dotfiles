@@ -1,0 +1,6 @@
+name: awscli
+stage: 2
+config: []
+scripts:
+  macos_arm: |
+    brew install awscli

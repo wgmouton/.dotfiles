@@ -1,0 +1,12 @@
+name: Azure CLI
+description: The Microsoft Azure CLI Client
+stage: 2
+config: 
+  - type: script
+    before_script: false
+    platform: macos_arm
+    script: |
+      az extension add --name azure-devops
+scripts:
+  macos_arm: |
+    brew install azure-cli

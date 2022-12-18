@@ -1,0 +1,7 @@
+name: Authy
+description: A tool that stores 2 factor authentication keys
+stage: 1
+config: []
+scripts:
+  macos_arm: |
+    brew install --cask authy

@@ -1,0 +1,7 @@
+name: exa
+description: exa
+stage: 2
+config: []
+scripts:
+  macos_arm: |
+    echo Installing exa

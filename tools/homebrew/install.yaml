@@ -1,0 +1,7 @@
+name: homebrew
+description: homebrew package manager
+stage: 0
+config: []
+scripts:
+  macos_arm: |
+    echo Installing homebrew

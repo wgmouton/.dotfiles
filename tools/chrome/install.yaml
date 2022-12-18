@@ -1,0 +1,7 @@
+name: Google Chrome
+description: Google's Web browser
+stage: 1
+config: []
+scripts:
+  macos_arm: |
+    echo Installing Google Chrome

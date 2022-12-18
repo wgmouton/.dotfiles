@@ -1,0 +1,7 @@
+name: Docker
+description: Docker
+stage: 1
+config: []
+scripts:
+  macos_arm: |
+    echo Installing Docker

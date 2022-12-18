@@ -100,6 +100,7 @@ func (p *Progress) Init(full int, limit int) chan int {
 	return p.progress
 }
 
+// TODO:: NEEDS COMPLETE REWRITE PROOF OF CONCEPT ONLY
 var installCmd = &cobra.Command{
 	Use:   "install",
 	Short: "Installs all or specific tools",
@@ -208,7 +209,7 @@ var installCmd = &cobra.Command{
 			}
 
 			cmd := exec.Command("bash", "-c", *script.Scripts.MacosArm)
-			stdin, _ := cmd.StdoutPipe()
+			stdout, _ := cmd.StdoutPipe()
 			stderr, _ := cmd.StderrPipe()
 			statusChan <- types.ExecutionStatusInProgress
 			cmd.Start()
@@ -223,8 +224,8 @@ var installCmd = &cobra.Command{
 				}
 			}()
 
-			func() {
-				scannerGood := bufio.NewScanner(stdin)
+			go func() {
+				scannerGood := bufio.NewScanner(stdout)
 				scannerGood.Split(bufio.ScanLines)
 				for scannerGood.Scan() {
 					x := scannerGood.Text()
@@ -269,7 +270,35 @@ var installCmd = &cobra.Command{
 						return
 					}
 				case types.ConfigScript:
-					// return
+					configCmd := exec.Command("bash", "-c", *script.Scripts.MacosArm)
+					configStdout, _ := configCmd.StdoutPipe()
+					configStderr, _ := configCmd.StderrPipe()
+					configCmd.Start()
+
+					go func() {
+						scanner := bufio.NewScanner(configStderr)
+						scanner.Split(bufio.ScanLines)
+						for scanner.Scan() {
+							m := scanner.Text()
+							globalLogChan <- fmt.Sprintf("[%s][ %s ] [white]%s", logColors[colorCounter], script.Name, m)
+							logChan <- m
+						}
+					}()
+
+					go func() {
+						scannerGood := bufio.NewScanner(configStdout)
+						scannerGood.Split(bufio.ScanLines)
+						for scannerGood.Scan() {
+							x := scannerGood.Text()
+							globalLogChan <- fmt.Sprintf("[%s][ %s ] [white]%s", logColors[colorCounter], script.Name, x)
+							logChan <- x
+						}
+					}()
+
+					if err := configCmd.Wait(); err != nil {
+						globalLogChan <- fmt.Sprintf("[%s][ %s ] [white]%s", logColors[colorCounter], script.Name, err.Error())
+						logChan <- err.Error()
+					}
 				}
 			}
 

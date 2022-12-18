@@ -1,0 +1,7 @@
+name: Adobe Creative Cloud
+description: A suite of tools used for design, eidting, photos etc.
+stage: 3
+config: []
+scripts:
+  macos_arm: |
+    brew install --cask adobe-creative-cloud
