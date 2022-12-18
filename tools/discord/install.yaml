@@ -4,4 +4,4 @@ stage: 3
 config: []
 scripts:
   macos_arm: |
-    echo Installing Discord
+    brew install discord --cask

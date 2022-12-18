@@ -1,0 +1,11 @@
+name: iTerm2
+description: A modern MacOS terminal
+stage: 1
+config: 
+  - type: link
+    before_script: true
+    source: /.iterm2
+    target: /.iterm2
+scripts:
+  macos_arm: |
+    brew install iterm2 --cask

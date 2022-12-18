@@ -1,0 +1,7 @@
+name: Home Assistant
+description: A selfhosted and local home automation platform
+stage: 4
+config: []
+scripts:
+  macos_arm: |
+   brew install --cask home-assistant

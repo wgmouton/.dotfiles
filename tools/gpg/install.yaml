@@ -1,0 +1,7 @@
+name: GPG
+description: GPG
+stage: 2
+config: []
+scripts:
+  macos_arm: |
+    brew install --cask gpg-suite-no-mail

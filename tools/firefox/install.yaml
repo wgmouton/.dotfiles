@@ -1,0 +1,7 @@
+name: Firefox
+description: Firefox Web browser
+stage: 4
+config: []
+scripts:
+  macos_arm: |
+    brew install --cask firefox

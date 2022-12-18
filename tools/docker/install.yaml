@@ -4,4 +4,4 @@ stage: 1
 config: []
 scripts:
   macos_arm: |
-    echo Installing Docker
+    brew install docker --cask

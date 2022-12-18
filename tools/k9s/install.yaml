@@ -1,0 +1,7 @@
+name: k9s
+description: A kubernetes cli client
+stage: 3
+config: []
+scripts:
+  macos_arm: |
+    brew install k9s

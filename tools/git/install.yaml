@@ -2,15 +2,15 @@ name: git
 description: git version controll system
 stage: 0
 config: 
-  # - type: link
-  #   before_script: true
-  #   source: /test-git
-  #   target: /.config/git-test
+  - type: link
+    before_script: true
+    source: /it
+    target: /.config/git
   - type: script
     before_script: false
     platform: macos_arm
     script: |
-      echo "configuring...."
+      git config --global core.excludesFile '~/.config/git/.gitignore'
 scripts:
   macos_arm: |
-    echo Installing git
+    echo Installing git...

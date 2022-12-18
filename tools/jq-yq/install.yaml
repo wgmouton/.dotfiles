@@ -1,0 +1,7 @@
+name: JQ & YQ
+description: Json Query and Yaml Query Tools
+stage: 3
+config: []
+scripts:
+  macos_arm: |
+    brew install jq yq

@@ -4,4 +4,6 @@ stage: 0
 config: []
 scripts:
   macos_arm: |
-    echo Installing homebrew
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    brew tap homebrew/autoupdate
+    brew autoupdate start

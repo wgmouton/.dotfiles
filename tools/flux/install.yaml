@@ -1,0 +1,7 @@
+name: Flux
+description: Flux
+stage: 3
+config: []
+scripts:
+  macos_arm: |
+    brew install --cask flux

@@ -1,8 +1,22 @@
 name: Fish
 stage: 1
-config: []
+config: 
+  - type: link
+    before_script: true
+    source: /fish
+    target: /.config/fish
+  - type: script
+    before_script: false
+    platform: macos_arm
+    script: |
+      fish -c "fisher update ilancosman/tide"
+      fish -c "fisher update franciscolourenco/done"
+      # fish -c "fisher intall acomagu/fish-async-prompt" ##NOTE: Breaks on m1 mac
+      fish -c "fisher update jethrokuan/z"
+      fish -c "fisher update PatrickF1/fzf.fish"
+
 scripts:
   macos_arm: |
-    echo hallo
-    echo world
-    echo yes hi
+    brew tap homebrew/cask-fonts
+    brew install --cask font-hack-nerd-font
+    brew install fish fisher

@@ -1,0 +1,7 @@
+name: Google Drive
+description: Google Drive
+stage: 4
+config: []
+scripts:
+  macos_arm: |
+    brew install --cask google-drive

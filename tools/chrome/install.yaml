@@ -1,7 +1,7 @@
 name: Google Chrome
 description: Google's Web browser
-stage: 1
+stage: 4
 config: []
 scripts:
   macos_arm: |
-    echo Installing Google Chrome
+    brew install google-chrome --cask

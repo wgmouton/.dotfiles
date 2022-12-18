@@ -4,4 +4,4 @@ stage: 2
 config: []
 scripts:
   macos_arm: |
-    echo Installing exa
+    brew install exa
