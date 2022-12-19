@@ -145,19 +145,19 @@ var installCmd = &cobra.Command{
 
 		finalReportChan := make(chan []types.ExecutionReport)
 		defer close(finalReportChan)
-		defer func() {
-			report := <-finalReportChan
-			yamlReport, _ := yaml.Marshal(&report)
-			os.WriteFile("./report.yaml", yamlReport, 0644)
-		}()
+		// defer func() {
+		// 	report := <-finalReportChan
+		// 	yamlReport, _ := yaml.Marshal(&report)
+		// 	os.WriteFile("./report.yaml", yamlReport, 0644)
+		// }()
 
-		go func() {
-			reports := []types.ExecutionReport{}
-			for toolCounter != doneCounter {
-				reports = append(reports, <-reportChan)
-			}
-			finalReportChan <- reports
-		}()
+		// go func() {
+		// 	reports := []types.ExecutionReport{}
+		// 	for toolCounter != doneCounter {
+		// 		reports = append(reports, <-reportChan)
+		// 	}
+		// 	finalReportChan <- reports
+		// }()
 
 		executeScript := func(wg *sync.WaitGroup, script types.InstallScriptDefinition, colorCounter int) {
 			logChan, statusChan := script.GetChannels()
@@ -201,7 +201,6 @@ var installCmd = &cobra.Command{
 						statusChan <- types.ExecutionStatusFailed
 						globalLogChan <- fmt.Sprintf("[%s][ %s ] [white]%s", logColors[colorCounter], script.Name, err.Error())
 						logChan <- err.Error()
-						return
 					}
 				case types.ConfigScript:
 					// return
@@ -267,7 +266,6 @@ var installCmd = &cobra.Command{
 						statusChan <- types.ExecutionStatusFailed
 						globalLogChan <- fmt.Sprintf("[%s][ %s ] [white]%s", logColors[colorCounter], script.Name, err.Error())
 						logChan <- err.Error()
-						return
 					}
 				case types.ConfigScript:
 					configCmd := exec.Command("bash", "-c", *script.Scripts.MacosArm)
@@ -304,12 +302,12 @@ var installCmd = &cobra.Command{
 
 			statusChan <- types.ExecutionStatusCompleted
 			statusChan <- types.ExecutionStatusInstalled
-			reportChan <- types.ExecutionReport{
-				Name:             script.Name,
-				Status:           types.ExecutionStatusInstalled,
-				Version:          new(string),
-				InstallationPath: new(string),
-			}
+			// reportChan <- types.ExecutionReport{
+			// 	Name:             script.Name,
+			// 	Status:           types.ExecutionStatusInstalled,
+			// 	Version:          new(string),
+			// 	InstallationPath: new(string),
+			// }
 		}
 
 		// var concurantExecutionsWG sync.WaitGroup
