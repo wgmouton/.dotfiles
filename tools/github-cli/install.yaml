@@ -1,0 +1,7 @@
+name: Github CLI
+description: A cli that manages the remote Github repository
+stage: 2
+config: []
+scripts:
+  macos_arm: |
+    brew install gh
