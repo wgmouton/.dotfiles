@@ -1,0 +1,11 @@
+name: RipGrep
+description: A tool that replaces grep
+stage: 2
+config: 
+  - type: link
+    before_script: true
+    source: /.ripgreprc
+    target: /.ripgreprc
+scripts:
+  macos_arm: |
+    brew install ripgrep

@@ -1,0 +1,7 @@
+name: Slack
+description: A messaging client
+stage: 3
+config: []
+scripts:
+  macos_arm: |
+    brew install slack --cask

@@ -4,4 +4,4 @@ stage: 0
 config: []
 scripts:
   macos_arm: |
-    # /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+    /usr/sbin/softwareupdate --install-rosetta --agree-to-license

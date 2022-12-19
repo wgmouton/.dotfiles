@@ -1,0 +1,7 @@
+name: Node
+description: Node compiler, node package manger, and yarn
+stage: 3
+config: []
+scripts:
+  macos_arm: |
+    brew install node npm yarn

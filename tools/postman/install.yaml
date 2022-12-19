@@ -1,0 +1,7 @@
+name: Postman
+description: Postman API tool and manager
+stage: 4
+config: []
+scripts:
+  macos_arm: |
+    brew install postman --cask

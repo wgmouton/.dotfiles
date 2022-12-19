@@ -1,0 +1,7 @@
+name: Spotify
+description: A Music streaming client
+stage: 3
+config: []
+scripts:
+  macos_arm: |
+    brew install spotify --cask

@@ -4,8 +4,8 @@ stage: 1
 config: 
   - type: link
     before_script: true
-    source: /.iterm2
-    target: /.iterm2
+    source: /iterm2
+    target: /.config/iterm2
 scripts:
   macos_arm: |
     brew install iterm2 --cask

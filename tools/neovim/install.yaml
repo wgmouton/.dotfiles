@@ -1,0 +1,11 @@
+name: Neovim
+description: Neovim
+stage: 1
+config: 
+  - type: link
+    before_script: true
+    source: /nvim
+    target: /.config/nvim
+scripts:
+  macos_arm: |
+    brew install neovim

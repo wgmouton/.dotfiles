@@ -1,0 +1,7 @@
+name: Minbrowser
+description: A minimalis browser
+stage: 5
+config: []
+scripts:
+  macos_arm: |
+    brew install min --cask

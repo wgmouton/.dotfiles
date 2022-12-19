@@ -1,0 +1,11 @@
+name: Karabiner Elements
+description: A MacOS key rebinding tool
+stage: 5
+config: 
+  - type: link
+    before_script: true
+    source: /karabiner
+    target: /.config/karabiner
+scripts:
+  macos_arm: |
+    brew install karabiner-elements --cask

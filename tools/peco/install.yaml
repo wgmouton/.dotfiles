@@ -1,0 +1,7 @@
+name: Peco
+description: Peco search tool
+stage: 3
+config: []
+scripts:
+  macos_arm: |
+    brew install peco

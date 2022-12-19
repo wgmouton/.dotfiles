@@ -1,0 +1,7 @@
+name: Notion
+description: Notion
+stage: 4
+config: []
+scripts:
+  macos_arm: |
+    brew install notion --cask

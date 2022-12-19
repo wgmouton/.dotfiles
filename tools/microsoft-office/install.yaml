@@ -1,0 +1,7 @@
+name: Microsoft Office
+description: Microsoft Office Suite
+stage: 5
+config: []
+scripts:
+  macos_arm: |
+    brew install --cask microsoft-office
