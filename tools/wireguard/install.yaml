@@ -1,0 +1,7 @@
+name: Wireguard
+description: A good opensource VPN
+stage: 2
+config: []
+scripts:
+  macos_arm: |
+    brew install --cask wireguard-tools

@@ -1,0 +1,7 @@
+name: VSCode
+description: Microsoft's ide and code editor
+stage: 2
+config: []
+scripts:
+  macos_arm: |
+    brew install visual-studio-code --cask

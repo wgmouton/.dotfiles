@@ -1,0 +1,7 @@
+name: Whatsapp
+description: A messaging client
+stage: 2
+config: []
+scripts:
+  macos_arm: |
+    brew install whatsapp --cask

@@ -1,0 +1,12 @@
+name: Nerd Fonts
+description: Fonts for cli
+stage: 0
+config: 
+  - type: script
+    before_script: true
+    platform: macos_arm
+    script: mkdir ~/.config
+scripts:
+  macos_arm: |
+    git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git ~/.config/nerd-fonts
+    bash -c ~/.config/nerd-fonts/install.sh

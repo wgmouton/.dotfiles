@@ -1,0 +1,8 @@
+name: Talosctl
+description: A kubernetes management engine
+stage: 5
+config: []
+scripts:
+  macos_arm: |
+    curl -Lo /usr/local/bin/talosctl https://github.com/siderolabs/talos/releases/download/v1.1.1/talosctl-$(uname -s | tr "[:upper:]" "[:lower:]")-arm64
+    chmod +x /usr/local/bin/talosctl

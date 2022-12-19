@@ -1,0 +1,15 @@
+name: Tmux
+description: A window manager in the cli
+stage: 2
+config: 
+  - type: link
+    before_script: true
+    source: /tmux
+    target: /.config/tmux
+  - type: link
+    before_script: true
+    source: /.tmux.conf
+    target: /.tmux.conf
+scripts:
+  macos_arm: |
+    brew install tmux

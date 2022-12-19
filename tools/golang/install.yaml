@@ -1,0 +1,7 @@
+name: Golang
+description: Golang
+stage: 1
+config: []
+scripts:
+  macos_arm: |
+    brew install go

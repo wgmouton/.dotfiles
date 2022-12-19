@@ -1,0 +1,7 @@
+name: Sublime Text
+description: A text editor
+stage: 3
+config: []
+scripts:
+  macos_arm: |
+    brew install --cask sublime-text
