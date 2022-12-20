@@ -146,18 +146,18 @@ var installCmd = &cobra.Command{
 
 		// Sort Stages
 
-		testChan := make(chan string)
+		testChan := make(chan string, 10000000)
 		defer close(testChan)
-		globalLogChan := make(chan string)
+		globalLogChan := make(chan string, 10000000)
 		defer close(globalLogChan)
 
-		progressChan := make(chan int)
+		progressChan := make(chan int, 10000)
 		defer close(progressChan)
 
 		reportChan := make(chan types.ExecutionReport, 10000)
 		defer close(reportChan)
 
-		finalReportChan := make(chan []types.ExecutionReport)
+		finalReportChan := make(chan []types.ExecutionReport, 10000000)
 		defer close(finalReportChan)
 		// defer func() {
 		// 	report := <-finalReportChan
@@ -367,9 +367,9 @@ var installCmd = &cobra.Command{
 					if script.Scripts.MacosArm.Async {
 						wgStage.Add(1)
 						go func(s types.InstallScriptDefinition) {
+							defer wgStage.Done()
+							defer wgCommand.Done()
 							executeScript(s, colorCounter)
-							wgCommand.Done()
-							wgStage.Done()
 						}(script)
 					} else {
 						wgCommand.Wait()
@@ -626,7 +626,6 @@ var installCmd = &cobra.Command{
 		// }
 
 		// Sort stages
-		sort.Ints(stages)
 
 		if err := app.SetRoot(grid, true).SetFocus(table).Run(); err != nil {
 			panic(err)
