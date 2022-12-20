@@ -129,7 +129,7 @@ func (c *InstallScriptDefinition) UnmarshalYAML(value *yaml.Node) error {
 func (s *InstallScriptDefinition) InitChannels(ctx context.Context) {
 	s.channels.globalLog = make(chan string, 100000)
 	s.channels.toolLog = make(chan string, 100000)
-	s.channels.status = make(chan ExecutionStatus, 1)
+	s.channels.status = make(chan ExecutionStatus, 10000000)
 	go func() {
 		<-ctx.Done()
 		close(s.channels.globalLog)
