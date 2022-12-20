@@ -7,9 +7,10 @@ import (
 )
 
 type Command struct {
-	Name  *string `yaml:"name"`
-	Async bool    `yaml:"async"`
-	Run   string  `yaml:"run"`
+	Run     string `yaml:"run"`
+	Async   bool   `yaml:"async"`
+	Sudo    *bool  `yaml:"sudo"`
+	Timeout *int   `yaml:"timeout"`
 }
 
 type Scripts struct {
