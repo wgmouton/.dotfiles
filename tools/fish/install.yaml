@@ -20,5 +20,4 @@ scripts:
     async: false
     run: |
       brew tap homebrew/cask-fonts
-      brew install --cask font-hack-nerd-font
       brew install fish fisher
