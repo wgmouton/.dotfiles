@@ -369,10 +369,12 @@ var installCmd = &cobra.Command{
 						go func(s types.InstallScriptDefinition) {
 							executeScript(s, colorCounter)
 							wgCommand.Done()
+							wgStage.Done()
 						}(script)
 					} else {
 						wgCommand.Wait()
 						executeScript(script, colorCounter)
+						wgStage.Done()
 					}
 				}
 				wgStage.Wait()
@@ -480,6 +482,40 @@ var installCmd = &cobra.Command{
 				}
 			}()
 			return flex
+
+			// flex.SetInputCapture(func(event *tcell.EventKey) *tcell.EventKey {
+			// 	switch event.Key() {
+			// 	case tcell.KeyUp:
+			// 		row, _ := table.GetSelection()
+
+			// 		// fmt.Println(row, col)
+			// 		tool := toolListMap[row]
+
+			// 		bytes, _ := yaml.Marshal(&tool)
+
+			// 		app.SetRoot(modal(tview.NewTextView().SetText(string(bytes)), 50, 50), true)
+			// 		return event
+			// 	case 'l':
+			// 		row, _ := table.GetSelection()
+			// 		tool := toolListMap[row]
+			// 		logChan, _ := tool.GetChannels()
+
+			// 		logGrid := tview.NewFlex()
+			// 		command := tview.NewTextView().SetText("command")
+			// 		command.SetTitle(" Command ").SetBorder(true)
+			// 		logGrid.SetBorder(true)
+			// 		logGrid.SetDirection(tview.FlexRow)
+			// 		logGrid.AddItem(command, 0, 1, false)
+			// 		logGrid.AddItem(toolLogView(logChan), 0, 9, true)
+
+			// 		app.SetRoot(logGrid, true)
+			// 		return event
+			// 	case 'L':
+			// 		app.SetRoot(globalLogView, true)
+			// 		return event
+			// 	}
+			// 	return event
+			// })
 		}()
 
 		toolLogView := func(logChan <-chan string) tview.Primitive {
