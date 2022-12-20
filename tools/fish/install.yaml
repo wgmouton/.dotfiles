@@ -19,5 +19,4 @@ scripts:
   macos_arm: 
     async: false
     run: |
-      brew tap homebrew/cask-fonts
       brew install fish fisher
