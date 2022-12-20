@@ -3,5 +3,7 @@ description: Jebbrains Toolbox
 stage: 4
 config: []
 scripts:
-  macos_arm: |
-    brew install --cask jetbrains-toolbox
+  macos_arm: 
+    async: false
+    run: |
+      brew install --cask jetbrains-toolbox

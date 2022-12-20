@@ -3,5 +3,7 @@ description: A text editor
 stage: 3
 config: []
 scripts:
-  macos_arm: |
-    brew install --cask sublime-text
+  macos_arm: 
+    async: false
+    run: |
+      brew install --cask sublime-text

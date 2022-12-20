@@ -3,5 +3,7 @@ description: GPG
 stage: 2
 config: []
 scripts:
-  macos_arm: |
-    brew install --cask gpg-suite-no-mail
+  macos_arm: 
+    async: false
+    run: |
+      brew install --cask gpg-suite-no-mail

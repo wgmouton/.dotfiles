@@ -23,7 +23,6 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/wgmouton/.dotfiles/manager/state"
 	"github.com/wgmouton/.dotfiles/manager/types"
-	"golang.org/x/exp/maps"
 	"gopkg.in/yaml.v3"
 )
 
@@ -122,15 +121,30 @@ var installCmd = &cobra.Command{
 		toolList := state.GetToolList()
 		// toolListSize := len(toolList)
 
+		runInitStage, err := cmd.Flags().GetBool("init")
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+
 		// Set Table data
 		toolCounter := 0
 		doneCounter := 0
 
 		// Get Stages
-		stages := maps.Keys(toolList)
+		stages := func() []int {
+			stages := []int{}
+			for stage := range toolList {
+				if stage == 0 && !runInitStage {
+					continue
+				}
+				stages = append(stages, stage)
+			}
+			sort.Ints(stages)
+			return stages
+		}()
 
 		// Sort Stages
-		sort.Ints(stages)
 
 		testChan := make(chan string)
 		defer close(testChan)
@@ -159,10 +173,9 @@ var installCmd = &cobra.Command{
 		// 	finalReportChan <- reports
 		// }()
 
-		executeScript := func(wg *sync.WaitGroup, script types.InstallScriptDefinition, colorCounter int) {
+		executeScript := func(script types.InstallScriptDefinition, colorCounter int) {
 			logChan, statusChan := script.GetChannels()
 			defer func() {
-				wg.Done()
 				// fmt.Println(toolCounter, (float64(doneCounter) / float64(toolCounter) * 100))
 				doneCounter++
 				progressChan <- int((float64(doneCounter) / float64(toolCounter) * 100))
@@ -203,11 +216,39 @@ var installCmd = &cobra.Command{
 						logChan <- err.Error()
 					}
 				case types.ConfigScript:
-					// return
+					configCmd := exec.Command("bash", "-c", c.Script)
+					configStdout, _ := configCmd.StdoutPipe()
+					configStderr, _ := configCmd.StderrPipe()
+					configCmd.Start()
+
+					go func() {
+						scanner := bufio.NewScanner(configStderr)
+						scanner.Split(bufio.ScanLines)
+						for scanner.Scan() {
+							m := scanner.Text()
+							globalLogChan <- fmt.Sprintf("[%s][ %s ] [white]%s", logColors[colorCounter], script.Name, m)
+							logChan <- m
+						}
+					}()
+
+					go func() {
+						scannerGood := bufio.NewScanner(configStdout)
+						scannerGood.Split(bufio.ScanLines)
+						for scannerGood.Scan() {
+							x := scannerGood.Text()
+							globalLogChan <- fmt.Sprintf("[%s][ %s ] [white]%s", logColors[colorCounter], script.Name, x)
+							logChan <- x
+						}
+					}()
+
+					if err := configCmd.Wait(); err != nil {
+						globalLogChan <- fmt.Sprintf("[%s][ %s ] [white]%s", logColors[colorCounter], script.Name, err.Error())
+						logChan <- err.Error()
+					}
 				}
 			}
 
-			cmd := exec.Command("bash", "-c", *script.Scripts.MacosArm)
+			cmd := exec.Command("bash", "-c", script.Scripts.MacosArm.Run)
 			stdout, _ := cmd.StdoutPipe()
 			stderr, _ := cmd.StderrPipe()
 			statusChan <- types.ExecutionStatusInProgress
@@ -268,7 +309,7 @@ var installCmd = &cobra.Command{
 						logChan <- err.Error()
 					}
 				case types.ConfigScript:
-					configCmd := exec.Command("bash", "-c", *script.Scripts.MacosArm)
+					configCmd := exec.Command("bash", "-c", c.Script)
 					configStdout, _ := configCmd.StdoutPipe()
 					configStderr, _ := configCmd.StderrPipe()
 					configCmd.Start()
@@ -317,14 +358,24 @@ var installCmd = &cobra.Command{
 			for _, stage := range stages {
 				scripts := toolList[stage]
 
-				var wg sync.WaitGroup
-				wg.Add(len(scripts))
+				var wgStage sync.WaitGroup
+				var wgCommand sync.WaitGroup
+				wgStage.Add(len(scripts))
 
 				for _, script := range scripts {
 					colorCounter++
-					go executeScript(&wg, script, colorCounter)
+					if script.Scripts.MacosArm.Async {
+						wgStage.Add(1)
+						go func(s types.InstallScriptDefinition) {
+							executeScript(s, colorCounter)
+							wgCommand.Done()
+						}(script)
+					} else {
+						wgCommand.Wait()
+						executeScript(script, colorCounter)
+					}
 				}
-				wg.Wait()
+				wgStage.Wait()
 			}
 		}()
 
@@ -467,7 +518,7 @@ var installCmd = &cobra.Command{
 				logChan, _ := tool.GetChannels()
 
 				logGrid := tview.NewFlex()
-				command := tview.NewTextView().SetText(*tool.Scripts.MacosArm)
+				command := tview.NewTextView().SetText("command")
 				command.SetTitle(" Command ").SetBorder(true)
 				logGrid.SetBorder(true)
 				logGrid.SetDirection(tview.FlexRow)
@@ -744,5 +795,6 @@ func runner() {
 }
 
 func init() {
+	installCmd.Flags().Bool("init", false, "Run stage 0")
 	RootCmd.AddCommand(installCmd, updateCmd)
 }

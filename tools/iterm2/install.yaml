@@ -7,5 +7,7 @@ config:
     source: /iterm2
     target: /.config/iterm2
 scripts:
-  macos_arm: |
-    brew install iterm2 --cask
+  macos_arm: 
+    async: false
+    run: |
+      brew install iterm2 --cask

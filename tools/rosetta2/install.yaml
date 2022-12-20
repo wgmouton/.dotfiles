@@ -3,5 +3,7 @@ description: Macos x86 to arm translation layer
 stage: 0
 config: []
 scripts:
-  macos_arm: |
-    /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+  macos_arm: 
+    async: false
+    run: |
+      /usr/sbin/softwareupdate --install-rosetta --agree-to-license

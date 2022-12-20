@@ -3,5 +3,7 @@ description: A messaging client
 stage: 3
 config: []
 scripts:
-  macos_arm: |
-    brew install slack --cask
+  macos_arm: 
+    async: false
+    run: |
+      brew install slack --cask

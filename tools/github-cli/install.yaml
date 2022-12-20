@@ -3,5 +3,7 @@ description: A cli that manages the remote Github repository
 stage: 2
 config: []
 scripts:
-  macos_arm: |
-    brew install gh
+  macos_arm: 
+    async: false
+    run: |
+      brew install gh

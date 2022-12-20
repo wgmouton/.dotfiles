@@ -1,8 +1,9 @@
 name: 1Password
 stage: 2
 config: []
-  
 scripts:
-  macos_arm: |
-    brew install 1password --cask
-    brew install 1password-cli
+  macos_arm: 
+    - async: false
+      run: |
+        brew install 1password --cask
+        brew install 1password-cli

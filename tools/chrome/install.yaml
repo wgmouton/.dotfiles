@@ -3,5 +3,7 @@ description: Google's Web browser
 stage: 4
 config: []
 scripts:
-  macos_arm: |
-    brew install google-chrome --cask
+  macos_arm: 
+    async: false
+    run: |
+      brew install google-chrome --cask

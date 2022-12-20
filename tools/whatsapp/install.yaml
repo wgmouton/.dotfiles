@@ -3,5 +3,7 @@ description: A messaging client
 stage: 2
 config: []
 scripts:
-  macos_arm: |
-    brew install whatsapp --cask
+  macos_arm: 
+    async: false
+    run: |
+      brew install whatsapp --cask

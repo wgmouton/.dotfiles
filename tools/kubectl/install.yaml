@@ -3,5 +3,7 @@ description: The official k8s management cli
 stage: 2
 config: []
 scripts:
-  macos_arm: |
-    brew install kubectl
+  macos_arm: 
+    async: false
+    run: |
+      brew install kubectl

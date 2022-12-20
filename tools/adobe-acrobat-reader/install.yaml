@@ -3,5 +3,7 @@ description: Application for viewing and editing PDF documents
 stage: 3
 config: []
 scripts:
-  macos_arm: |
-    brew install --cask adobe-acrobat-reader
+  macos_arm: 
+    async: false
+    run: |
+      brew install --cask adobe-acrobat-reader

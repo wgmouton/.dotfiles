@@ -3,5 +3,7 @@ description: Golang
 stage: 1
 config: []
 scripts:
-  macos_arm: |
-    brew install go
+  macos_arm: 
+    async: false
+    run: |
+      brew install go

@@ -7,5 +7,7 @@ config:
     source: /karabiner
     target: /.config/karabiner
 scripts:
-  macos_arm: |
-    brew install karabiner-elements --cask
+  macos_arm: 
+    async: false
+    run: |
+      brew install karabiner-elements --cask

@@ -3,5 +3,7 @@ description: Microsoft Office Suite
 stage: 5
 config: []
 scripts:
-  macos_arm: |
-    brew install --cask microsoft-office
+  macos_arm: 
+    async: false
+    run: |
+      brew install --cask microsoft-office

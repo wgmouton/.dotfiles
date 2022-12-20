@@ -3,6 +3,8 @@ description: A modern shell and replacement for bash
 stage: 2
 config: []
 scripts:
-  macos_arm: |
-    brew install romkatv/powerlevel10k/powerlevel10k
-    echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
+  macos_arm: 
+    async: false
+    run: |
+      brew install romkatv/powerlevel10k/powerlevel10k
+      echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc

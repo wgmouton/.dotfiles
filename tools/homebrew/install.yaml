@@ -3,7 +3,9 @@ description: homebrew package manager
 stage: 0
 config: []
 scripts:
-  macos_arm: |
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    brew tap homebrew/autoupdate
-    brew autoupdate start
+  macos_arm: 
+    async: true
+    run: |
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      brew tap homebrew/autoupdate
+      brew autoupdate start

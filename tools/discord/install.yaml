@@ -3,5 +3,7 @@ description: A chat application
 stage: 3
 config: []
 scripts:
-  macos_arm: |
-    brew install discord --cask
+  macos_arm: 
+    async: false
+    run: |
+      brew install discord --cask

@@ -3,5 +3,7 @@ description: Postman API tool and manager
 stage: 4
 config: []
 scripts:
-  macos_arm: |
-    brew install postman --cask
+  macos_arm: 
+    async: false
+    run: |
+      brew install postman --cask

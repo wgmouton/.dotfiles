@@ -3,5 +3,7 @@ description: Firefox Web browser
 stage: 4
 config: []
 scripts:
-  macos_arm: |
-    brew install --cask firefox
+  macos_arm: 
+    async: false
+    run: |
+      brew install --cask firefox

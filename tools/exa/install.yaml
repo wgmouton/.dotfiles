@@ -3,5 +3,7 @@ description: exa
 stage: 2
 config: []
 scripts:
-  macos_arm: |
-    brew install exa
+  macos_arm: 
+    async: false
+    run: |
+      brew install exa

@@ -4,6 +4,8 @@ stage: 0
 config: []
 
 scripts:
-  macos_arm: |
-    # Sets default to show all hidden files
+  macos_arm: 
+    async: false
+    run: |
+      # Sets default to show all hidden files
     # defaults write com.apple.finder AppleShowAllFiles -boolean true; killall Finder;

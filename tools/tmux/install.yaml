@@ -11,5 +11,7 @@ config:
     source: /.tmux.conf
     target: /.tmux.conf
 scripts:
-  macos_arm: |
-    brew install tmux
+  macos_arm: 
+    async: false
+    run: |
+      brew install tmux

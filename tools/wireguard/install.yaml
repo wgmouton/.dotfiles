@@ -3,5 +3,7 @@ description: A good opensource VPN
 stage: 2
 config: []
 scripts:
-  macos_arm: |
-    brew install --cask wireguard-tools
+  macos_arm: 
+    async: false
+    run: |
+      brew install --cask wireguard-tools

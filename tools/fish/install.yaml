@@ -16,7 +16,9 @@ config:
       fish -c "fisher update PatrickF1/fzf.fish"
 
 scripts:
-  macos_arm: |
-    brew tap homebrew/cask-fonts
-    brew install --cask font-hack-nerd-font
-    brew install fish fisher
+  macos_arm: 
+    async: false
+    run: |
+      brew tap homebrew/cask-fonts
+      brew install --cask font-hack-nerd-font
+      brew install fish fisher

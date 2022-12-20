@@ -6,11 +6,17 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+type Command struct {
+	Name  *string `yaml:"name"`
+	Async bool    `yaml:"async"`
+	Run   string  `yaml:"run"`
+}
+
 type Scripts struct {
-	MacosArm   *string `yaml:"macos_arm"`
-	MacosIntel *string `yaml:"macos_intel"`
-	Arch       *string `yaml:"arch"`
-	Windows    *string `yaml:"windows"`
+	MacosArm   *Command `yaml:"macos_arm"`
+	MacosIntel *Command `yaml:"macos_intel"`
+	Arch       *Command `yaml:"arch"`
+	Windows    *Command `yaml:"windows"`
 }
 
 type ConfigType string

@@ -3,5 +3,7 @@ description: A Music streaming client
 stage: 3
 config: []
 scripts:
-  macos_arm: |
-    brew install spotify --cask
+  macos_arm: 
+    async: false
+    run: |
+      brew install spotify --cask

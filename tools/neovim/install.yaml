@@ -7,5 +7,7 @@ config:
     source: /nvim
     target: /.config/nvim
 scripts:
-  macos_arm: |
-    brew install neovim
+  macos_arm: 
+    async: false
+    run: |
+      brew install neovim

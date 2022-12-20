@@ -7,5 +7,7 @@ config:
     source: /.ripgreprc
     target: /.ripgreprc
 scripts:
-  macos_arm: |
-    brew install ripgrep
+  macos_arm: 
+    async: false
+    run: |
+      brew install ripgrep

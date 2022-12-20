@@ -3,5 +3,7 @@ description: A Window manager for MacOS
 stage: 4
 config: []
 scripts:
-  macos_arm: |
-    brew install --cask tiles
+  macos_arm: 
+    async: false
+    run: |
+      brew install --cask tiles

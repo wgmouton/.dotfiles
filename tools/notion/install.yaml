@@ -3,5 +3,7 @@ description: Notion
 stage: 4
 config: []
 scripts:
-  macos_arm: |
-    brew install notion --cask
+  macos_arm: 
+    async: false
+    run: |
+      brew install notion --cask

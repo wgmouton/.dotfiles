@@ -8,5 +8,7 @@ config:
     script: |
       az extension add --name azure-devops
 scripts:
-  macos_arm: |
-    brew install azure-cli
+  macos_arm: 
+    async: false
+    run: |
+      brew install azure-cli

@@ -7,6 +7,8 @@ config:
     platform: macos_arm
     script: mkdir ~/.config
 scripts:
-  macos_arm: |
-    git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git ~/.config/nerd-fonts
-    bash -c ~/.config/nerd-fonts/install.sh
+  macos_arm: 
+    async: false
+    run: |
+      git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git ~/.config/nerd-fonts
+      bash -c ~/.config/nerd-fonts/install.sh

@@ -3,6 +3,8 @@ description: A infrastructure as code management tool
 stage: 2
 config: []
 scripts:
-  macos_arm: |
-    brew tap hashicorp/tap
-    brew install hashicorp/tap/terraform
+  macos_arm: 
+    async: false
+    run: |
+      brew tap hashicorp/tap
+      brew install hashicorp/tap/terraform

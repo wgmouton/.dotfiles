@@ -12,5 +12,7 @@ config:
     script: |
       git config --global core.excludesFile '~/.config/git/.gitignore'
 scripts:
-  macos_arm: |
-    echo Installing git...
+  macos_arm: 
+    async: false
+    run: |
+      echo Installing git...

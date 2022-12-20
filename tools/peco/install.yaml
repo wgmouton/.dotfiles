@@ -3,5 +3,7 @@ description: Peco search tool
 stage: 3
 config: []
 scripts:
-  macos_arm: |
-    brew install peco
+  macos_arm: 
+    async: false
+    run: |
+      brew install peco

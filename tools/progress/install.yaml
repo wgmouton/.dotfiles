@@ -3,5 +3,7 @@ description: Progress cli tool to checks progress of cp and scp
 stage: 2
 config: []
 scripts:
-  macos_arm: |
-    brew install progress
+  macos_arm: 
+    async: false
+    run: |
+      brew install progress
