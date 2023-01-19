@@ -1,0 +1,9 @@
+name: SigmaOS
+description: A modern take on a web browser
+stage: 3
+config: []
+scripts:
+  macos_arm: 
+    - async: false
+      run: |
+        brew install --cask sigmaos

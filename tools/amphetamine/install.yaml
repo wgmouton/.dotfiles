@@ -1,0 +1,9 @@
+name: Amphetamine
+description: Keeps your mac awake
+stage: 2
+config: []
+scripts:
+  macos_arm: 
+    - async: true
+      run: |
+        mas install 937984704

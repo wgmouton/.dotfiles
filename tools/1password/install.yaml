@@ -7,3 +7,4 @@ scripts:
       run: |
         brew install 1password --cask
         brew install 1password-cli
+        mas install 1569813296

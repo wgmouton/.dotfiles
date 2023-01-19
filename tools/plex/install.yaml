@@ -1,0 +1,9 @@
+name: Plex
+description: Plex Media Player for Plex Media Server
+stage: 5
+config: []
+scripts:
+  macos_arm: 
+    async: false
+    run: |
+      brew install plex

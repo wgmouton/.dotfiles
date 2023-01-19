@@ -1,0 +1,9 @@
+name: Velja
+description: Browser picker for links form os.
+stage: 2
+config: []
+scripts:
+  macos_arm: 
+    - async: true
+      run: |
+        mas install 1607635845
